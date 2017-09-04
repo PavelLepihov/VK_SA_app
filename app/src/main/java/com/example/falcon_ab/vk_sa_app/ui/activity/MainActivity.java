@@ -1,4 +1,4 @@
-package com.example.falcon_ab.vk_sa_app;
+package com.example.falcon_ab.vk_sa_app.ui.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,9 +8,13 @@ import android.widget.Toast;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.example.falcon_ab.vk_sa_app.CurrentUser;
+import com.example.falcon_ab.vk_sa_app.MyApplication;
+import com.example.falcon_ab.vk_sa_app.R;
 import com.example.falcon_ab.vk_sa_app.consts.ApiConstants;
 import com.example.falcon_ab.vk_sa_app.mvp.presenter.MainPresenter;
 import com.example.falcon_ab.vk_sa_app.mvp.view.MainView;
+import com.example.falcon_ab.vk_sa_app.ui.fragment.NewsFeedFragment;
 import com.vk.sdk.VKAccessToken;
 import com.vk.sdk.VKCallback;
 import com.vk.sdk.VKSdk;
@@ -19,7 +23,7 @@ import com.vk.sdk.util.VKUtil;
 
 import java.util.Arrays;
 
-public class MainActivity extends MvpAppCompatActivity implements MainView {
+public class MainActivity extends BaseActivity implements MainView {
 
     @InjectPresenter
     MainPresenter mPresenter;
@@ -27,10 +31,16 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        MyApplication.getApplicationComponent().inject(this);
 
         mPresenter.checkAuth();
     }
+
+    @Override
+    protected int getMainContentLayout() {
+        return R.layout.activity_main;
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (!VKSdk.onActivityResult(requestCode, resultCode, data, new VKCallback<VKAccessToken>() {
@@ -56,5 +66,6 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     @Override
     public void signedId() {
         Toast.makeText(this, "Current user id: " + CurrentUser.getId(), Toast.LENGTH_SHORT).show();
+        setContent(new NewsFeedFragment());
     }
 }
