@@ -8,7 +8,7 @@ import android.widget.FrameLayout;
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.example.falcon_ab.vk_sa_app.MyApplication;
 import com.example.falcon_ab.vk_sa_app.R;
-import com.example.falcon_ab.vk_sa_app.ui.activity.common.manager.MyFragmentManager;
+import com.example.falcon_ab.vk_sa_app.common.manager.MyFragmentManager;
 import com.example.falcon_ab.vk_sa_app.ui.fragment.BaseFragment;
 
 import javax.inject.Inject;

@@ -1,4 +1,4 @@
-package com.example.falcon_ab.vk_sa_app.ui.activity.common.manager;
+package com.example.falcon_ab.vk_sa_app.common.manager;
 
 
 import android.support.annotation.IdRes;

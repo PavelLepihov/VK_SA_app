@@ -1,7 +1,7 @@
 package com.example.falcon_ab.vk_sa_app.di.module;
 
 
-import com.example.falcon_ab.vk_sa_app.ui.activity.common.manager.MyFragmentManager;
+import com.example.falcon_ab.vk_sa_app.common.manager.MyFragmentManager;
 
 import javax.inject.Singleton;
 
