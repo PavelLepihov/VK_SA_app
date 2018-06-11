@@ -7,6 +7,8 @@ import com.example.falcon_ab.vk_sa_app.di.module.RestModule;
 import com.example.falcon_ab.vk_sa_app.ui.activity.BaseActivity;
 import com.example.falcon_ab.vk_sa_app.ui.activity.MainActivity;
 import com.example.falcon_ab.vk_sa_app.ui.fragment.NewsFeedFragment;
+import com.example.falcon_ab.vk_sa_app.ui.holder.NewsItemBodyHolder;
+import com.example.falcon_ab.vk_sa_app.ui.holder.NewsItemFooterHolder;
 
 import javax.inject.Singleton;
 
@@ -21,4 +23,7 @@ public interface ApplicationComponent {
     void inject(MainActivity activity);
     // fragments
     void inject(NewsFeedFragment fragment);
+    //holders
+    void inject(NewsItemBodyHolder holder);
+    void inject(NewsItemFooterHolder holder);
 }

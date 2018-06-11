@@ -27,6 +27,6 @@ public class ApplicationModule {
     @Provides
     @Singleton
     Typeface provideGoogleFontTypeface(Context context) {
-        return Typeface.createFromAsset(context.getAssets(), "MaterialIconsRegular.ttf");
+        return Typeface.createFromAsset(context.getAssets(), "MaterialIcons-Regular.ttf");
     }
 }
