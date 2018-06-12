@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.v7.widget.Toolbar;
 import android.widget.FrameLayout;
+import android.widget.ProgressBar;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.example.falcon_ab.vk_sa_app.MyApplication;
@@ -17,6 +18,7 @@ import javax.inject.Inject;
 public abstract class BaseActivity extends MvpAppCompatActivity {
     @Inject
     MyFragmentManager myFragmentManager;
+    protected ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,8 @@ public abstract class BaseActivity extends MvpAppCompatActivity {
 
         FrameLayout parent = (FrameLayout) findViewById(R.id.main_wrapper);
         getLayoutInflater().inflate(getMainContentLayout(), parent);
+
+        mProgressBar = (ProgressBar) findViewById(R.id.progress);
 
     }
     @LayoutRes
@@ -64,5 +68,9 @@ public abstract class BaseActivity extends MvpAppCompatActivity {
     @Override
     public void onBackPressed() {
         removeCurrentFragment();
+    }
+
+    public ProgressBar getProgressBar() {
+        return mProgressBar;
     }
 }

@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
-
+import com.example.falcon_ab.vk_sa_app.ui.activity.BaseActivity;
 
 
 public abstract class BaseFragment extends MvpAppCompatFragment {
@@ -30,4 +30,8 @@ public abstract class BaseFragment extends MvpAppCompatFragment {
     }
     @StringRes
     public abstract int onCreateToolbarTitle();
+
+    public BaseActivity getBaseActivity() {
+        return (BaseActivity) getActivity();
+    }
 }

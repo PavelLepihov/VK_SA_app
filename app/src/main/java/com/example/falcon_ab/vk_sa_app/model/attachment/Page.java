@@ -3,7 +3,9 @@ package com.example.falcon_ab.vk_sa_app.model.attachment;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Page implements Attachment {
+import io.realm.RealmObject;
+
+public class Page extends RealmObject implements Attachment {
 
     @SerializedName("id")
     @Expose

@@ -1,20 +1,21 @@
 
 package com.example.falcon_ab.vk_sa_app.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.example.falcon_ab.vk_sa_app.model.attachment.ApiAttachment;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class WallItem {
+import io.realm.RealmList;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
+public class WallItem extends RealmObject {
 
     private String senderName;
     private String senderPhoto;
     private String attachmentsString;
 
-
+    @PrimaryKey
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -41,10 +42,10 @@ public class WallItem {
     private Integer canPin;
     @SerializedName("attachments")
     @Expose
-    private List<ApiAttachment> attachments = null;
+    private RealmList<ApiAttachment> attachments = null;
     @SerializedName("copy_history")
     @Expose
-    private List<WallItem> copyHistory = new ArrayList<>();
+    private RealmList<WallItem> copyHistory = new RealmList<>();
 
     @SerializedName("post_source")
     @Expose
@@ -126,11 +127,11 @@ public class WallItem {
         this.canPin = canPin;
     }
 
-    public List<ApiAttachment> getAttachments() {
+    public RealmList<ApiAttachment> getAttachments() {
         return attachments;
     }
 
-    public void setAttachments(List<ApiAttachment> attachments) {
+    public void setAttachments(RealmList<ApiAttachment> attachments) {
         this.attachments = attachments;
     }
 

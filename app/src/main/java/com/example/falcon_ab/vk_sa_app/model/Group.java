@@ -4,7 +4,9 @@ package com.example.falcon_ab.vk_sa_app.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Group implements Owner {
+import io.realm.RealmObject;
+
+public class Group extends RealmObject implements Owner {
 
     @SerializedName("id")
     @Expose
