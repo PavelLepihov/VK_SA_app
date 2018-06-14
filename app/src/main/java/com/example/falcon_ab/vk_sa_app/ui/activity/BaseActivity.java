@@ -14,11 +14,17 @@ import com.example.falcon_ab.vk_sa_app.ui.fragment.BaseFragment;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public abstract class BaseActivity extends MvpAppCompatActivity {
     @Inject
     MyFragmentManager myFragmentManager;
+    @BindView(R.id.progress)
     protected ProgressBar mProgressBar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +32,12 @@ public abstract class BaseActivity extends MvpAppCompatActivity {
         MyApplication.getApplicationComponent().inject(this);
 
         setContentView(R.layout.activity_base);
+        ButterKnife.bind(this);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         FrameLayout parent = (FrameLayout) findViewById(R.id.main_wrapper);
         getLayoutInflater().inflate(getMainContentLayout(), parent);
-
-        mProgressBar = (ProgressBar) findViewById(R.id.progress);
 
     }
     @LayoutRes

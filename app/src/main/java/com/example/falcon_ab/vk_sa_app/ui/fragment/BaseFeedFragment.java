@@ -18,11 +18,16 @@ import com.example.falcon_ab.vk_sa_app.mvp.view.BaseFeedView;
 
 import java.util.List;
 
-public abstract class BaseFeedFragment extends BaseFragment implements BaseFeedView {
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
+public abstract class BaseFeedFragment extends BaseFragment implements BaseFeedView {
+    @BindView(R.id.rv_list)
     RecyclerView mRecyclerView;
 
     BaseAdapter mAdapter;
+    @BindView(R.id.swipe_refresh)
+
     protected SwipeRefreshLayout mSwipeRefreshLayout;
     protected ProgressBar mProgressBar;
     protected BaseFeedPresenter mBaseFeedPresenter;
@@ -30,6 +35,8 @@ public abstract class BaseFeedFragment extends BaseFragment implements BaseFeedV
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        ButterKnife.bind(this, view);
 
         setUpRecyclerView(view);
         setUpAdapter(mRecyclerView);
@@ -39,8 +46,6 @@ public abstract class BaseFeedFragment extends BaseFragment implements BaseFeedV
     }
 
     private void setUpRecyclerView(View rootView) {
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.rv_list);
-
         MyLinearLayoutManager mLinearLayoutManager = new MyLinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
 
@@ -73,7 +78,6 @@ public abstract class BaseFeedFragment extends BaseFragment implements BaseFeedV
     }
 
     private void setUpSwipeToRefreshLayout(View rootView) {
-        mSwipeRefreshLayout = (SwipeRefreshLayout)rootView.findViewById(R.id.swipe_refresh);
         mSwipeRefreshLayout.setOnRefreshListener(() -> onCreateFeedPresenter().loadRefresh());
 
         mSwipeRefreshLayout.setColorSchemeResources(R.color.colorAccent);

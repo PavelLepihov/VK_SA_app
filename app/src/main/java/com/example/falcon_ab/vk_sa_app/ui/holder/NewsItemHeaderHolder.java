@@ -9,25 +9,26 @@ import com.bumptech.glide.Glide;
 import com.example.falcon_ab.vk_sa_app.R;
 import com.example.falcon_ab.vk_sa_app.model.view.NewsItemHeaderViewModel;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class NewsItemHeaderHolder extends BaseViewHolder<NewsItemHeaderViewModel>{
+    @BindView(R.id.civ_profile_image)
+    public CircleImageView civProfileImage;
 
-    private CircleImageView civProfileImage;
+    @BindView(R.id.tv_profile_name)
+    public TextView tvName;
 
-    private TextView tvName;
+    @BindView(R.id.iv_reposted_icon)
+    public ImageView ivRepostedIcon;
 
-    private ImageView ivRepostedIcon;
-
-    private TextView tvRepostedProfileName;
+    @BindView(R.id.tv_reposted_profile_name)
+    public TextView tvRepostedProfileName;
 
     public NewsItemHeaderHolder(View itemView) {
         super(itemView);
-
-        civProfileImage = (CircleImageView) itemView.findViewById(R.id.civ_profile_image);
-        tvName = (TextView) itemView.findViewById(R.id.tv_profile_name);
-        ivRepostedIcon = (ImageView) itemView.findViewById(R.id.iv_reposted_icon);
-        tvRepostedProfileName = (TextView) itemView.findViewById(R.id.tv_reposted_profile_name);
+        ButterKnife.bind(this, itemView);
     }
 
 

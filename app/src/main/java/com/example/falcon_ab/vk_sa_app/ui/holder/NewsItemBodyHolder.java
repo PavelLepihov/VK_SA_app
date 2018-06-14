@@ -10,11 +10,14 @@ import com.example.falcon_ab.vk_sa_app.model.view.NewsFeedItemBodyViewModel;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class NewsItemBodyHolder extends BaseViewHolder<NewsFeedItemBodyViewModel> {
-
-    private TextView tvText;
-
-    private TextView tvAttachments;
+    @BindView(R.id.tv_text)
+    public TextView tvText;
+    @BindView(R.id.tv_attachments)
+    public TextView tvAttachments;
 
     @Inject
     protected Typeface mFontGoogle;
@@ -23,9 +26,7 @@ public class NewsItemBodyHolder extends BaseViewHolder<NewsFeedItemBodyViewModel
     public NewsItemBodyHolder(View itemView) {
         super(itemView);
         MyApplication.getApplicationComponent().inject(this);
-
-        tvText = (TextView) itemView.findViewById(R.id.tv_text);
-        tvAttachments = (TextView) itemView.findViewById(R.id.tv_attachments);
+        ButterKnife.bind(this, itemView);
 
         if (tvAttachments != null) {
             tvAttachments.setTypeface(mFontGoogle);
