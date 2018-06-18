@@ -11,6 +11,8 @@ import com.example.falcon_ab.vk_sa_app.mvp.view.MainView;
 import com.example.falcon_ab.vk_sa_app.rest.api.UsersApi;
 import com.example.falcon_ab.vk_sa_app.rest.model.request.UsersGetRequestModel;
 import com.example.falcon_ab.vk_sa_app.ui.fragment.BaseFragment;
+import com.example.falcon_ab.vk_sa_app.ui.fragment.BoardFragment;
+import com.example.falcon_ab.vk_sa_app.ui.fragment.InfoFragment;
 import com.example.falcon_ab.vk_sa_app.ui.fragment.MembersFragment;
 import com.example.falcon_ab.vk_sa_app.ui.fragment.MyPostsFragment;
 import com.example.falcon_ab.vk_sa_app.ui.fragment.NewsFeedFragment;
@@ -106,6 +108,12 @@ public class MainPresenter extends MvpPresenter<MainView> {
                 break;
             case 4:
                 fragment = new MembersFragment();
+                break;
+            case 5:
+                fragment = new BoardFragment();
+                break;
+            case 6:
+                fragment = new InfoFragment();
                 break;
         }
 

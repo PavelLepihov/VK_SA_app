@@ -5,6 +5,8 @@ import com.example.falcon_ab.vk_sa_app.common.manager.NetworkManager;
 import com.example.falcon_ab.vk_sa_app.di.module.ApplicationModule;
 import com.example.falcon_ab.vk_sa_app.di.module.ManagerModule;
 import com.example.falcon_ab.vk_sa_app.di.module.RestModule;
+import com.example.falcon_ab.vk_sa_app.mvp.presenter.BoardPresenter;
+import com.example.falcon_ab.vk_sa_app.mvp.presenter.InfoPresenter;
 import com.example.falcon_ab.vk_sa_app.mvp.presenter.MainPresenter;
 import com.example.falcon_ab.vk_sa_app.mvp.presenter.MembersPresenter;
 import com.example.falcon_ab.vk_sa_app.mvp.presenter.NewsFeedPresenter;
@@ -34,6 +36,8 @@ public interface ApplicationComponent {
     void inject(NewsFeedPresenter presenter);
     void inject(MainPresenter presenter);
     void inject(MembersPresenter presenter);
+    void inject(BoardPresenter presenter);
+    void inject(InfoPresenter presenter);
     //managers
     void inject(NetworkManager manager);
 }
