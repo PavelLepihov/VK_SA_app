@@ -1,15 +1,18 @@
-package com.example.falcon_ab.vk_sa_app.model.attachment;
+package com.example.falcon_ab.vk_sa_app.model.attachment.video;
 
+import com.example.falcon_ab.vk_sa_app.model.attachment.Attachment;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.vk.sdk.api.model.VKAttachments;
 
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 public class Video extends RealmObject implements Attachment {
 
     @SerializedName("id")
     @Expose
+    @PrimaryKey
     private int id;
     @SerializedName("owner_id")
     @Expose
@@ -50,6 +53,13 @@ public class Video extends RealmObject implements Attachment {
     @SerializedName("can_add")
     @Expose
     private int canAdd;
+    @SerializedName("files")
+    @Expose
+    public File files;
+
+    public File getFiles() {
+        return files;
+    }
 
 
     public int getId() {
@@ -168,5 +178,4 @@ public class Video extends RealmObject implements Attachment {
     public String getType() {
         return VKAttachments.TYPE_VIDEO;
     }
-
 }

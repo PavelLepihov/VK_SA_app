@@ -1,5 +1,5 @@
 
-package com.example.falcon_ab.vk_sa_app.model;
+package com.example.falcon_ab.vk_sa_app.model.countable;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -51,6 +51,10 @@ public class Likes extends RealmObject {
 
     public void setCanPublish(Integer canPublish) {
         this.canPublish = canPublish;
+    }
+
+    public boolean isUserLikes () {
+        return userLikes == 1;
     }
 
 }

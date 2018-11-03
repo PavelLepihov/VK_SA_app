@@ -6,7 +6,11 @@ import android.widget.TextView;
 
 import com.example.falcon_ab.vk_sa_app.MyApplication;
 import com.example.falcon_ab.vk_sa_app.R;
+import com.example.falcon_ab.vk_sa_app.common.manager.MyFragmentManager;
+import com.example.falcon_ab.vk_sa_app.common.utils.UiHelper;
 import com.example.falcon_ab.vk_sa_app.model.view.NewsFeedItemBodyViewModel;
+import com.example.falcon_ab.vk_sa_app.ui.activity.BaseActivity;
+import com.example.falcon_ab.vk_sa_app.ui.fragment.OpenedPostFragment;
 
 import javax.inject.Inject;
 
@@ -22,6 +26,9 @@ public class NewsItemBodyHolder extends BaseViewHolder<NewsFeedItemBodyViewModel
     @Inject
     protected Typeface mFontGoogle;
 
+    @Inject
+    MyFragmentManager myFragmentManager;
+
 
     public NewsItemBodyHolder(View itemView) {
         super(itemView);
@@ -36,12 +43,24 @@ public class NewsItemBodyHolder extends BaseViewHolder<NewsFeedItemBodyViewModel
     @Override
     public void bindViewHolder(NewsFeedItemBodyViewModel item) {
         tvText.setText(item.getText());
-        tvAttachments.setText(item.getmAttachmentString());
+        tvAttachments.setText(item.getAttachmentString());
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myFragmentManager.addFragment((BaseActivity) view.getContext(),
+                        OpenedPostFragment.newInstance(item.getId()),
+                        R.id.main_wrapper);
+
+            }
+        });
+        UiHelper.getInstance().setUpTextViewWithVisibility(tvText, item.getText());
+        UiHelper.getInstance().setUpTextViewWithVisibility(tvAttachments, item.getAttachmentString());
     }
 
     @Override
     public void unbindViewHolder() {
         tvText.setText(null);
         tvAttachments.setText(null);
+        itemView.setOnClickListener(null);
     }
 }

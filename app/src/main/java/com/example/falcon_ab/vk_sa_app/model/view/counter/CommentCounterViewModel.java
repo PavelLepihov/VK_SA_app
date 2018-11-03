@@ -1,6 +1,6 @@
 package com.example.falcon_ab.vk_sa_app.model.view.counter;
 
-import com.example.falcon_ab.vk_sa_app.model.Comments;
+import com.example.falcon_ab.vk_sa_app.model.countable.Comments;
 
 public class CommentCounterViewModel extends CounterViewModel{
 

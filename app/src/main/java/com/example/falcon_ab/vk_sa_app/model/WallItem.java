@@ -2,6 +2,9 @@
 package com.example.falcon_ab.vk_sa_app.model;
 
 import com.example.falcon_ab.vk_sa_app.model.attachment.ApiAttachment;
+import com.example.falcon_ab.vk_sa_app.model.countable.Comments;
+import com.example.falcon_ab.vk_sa_app.model.countable.Likes;
+import com.example.falcon_ab.vk_sa_app.model.countable.Reposts;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

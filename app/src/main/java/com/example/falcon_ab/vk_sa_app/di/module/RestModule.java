@@ -4,6 +4,7 @@ import com.example.falcon_ab.vk_sa_app.rest.RestClient;
 import com.example.falcon_ab.vk_sa_app.rest.api.BoardApi;
 import com.example.falcon_ab.vk_sa_app.rest.api.GroupsApi;
 import com.example.falcon_ab.vk_sa_app.rest.api.UsersApi;
+import com.example.falcon_ab.vk_sa_app.rest.api.VideoApi;
 import com.example.falcon_ab.vk_sa_app.rest.api.WallApi;
 
 import javax.inject.Singleton;
@@ -42,5 +43,10 @@ public class RestModule {
     @Singleton
     public BoardApi provideBoardApi() {
         return mRestClient.createService(BoardApi.class);
+    }
+    @Provides
+    @Singleton
+    public VideoApi provideVideoApi() {
+        return mRestClient.createService(VideoApi.class);
     }
 }

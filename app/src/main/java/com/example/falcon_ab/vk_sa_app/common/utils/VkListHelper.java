@@ -2,9 +2,22 @@ package com.example.falcon_ab.vk_sa_app.common.utils;
 
 import com.example.falcon_ab.vk_sa_app.model.Owner;
 import com.example.falcon_ab.vk_sa_app.model.WallItem;
+import com.example.falcon_ab.vk_sa_app.model.attachment.ApiAttachment;
+import com.example.falcon_ab.vk_sa_app.model.view.BaseViewModel;
+import com.example.falcon_ab.vk_sa_app.model.view.attachment.AudioAttachmentViewModel;
+import com.example.falcon_ab.vk_sa_app.model.view.attachment.DocAttachmentViewModel;
+import com.example.falcon_ab.vk_sa_app.model.view.attachment.DocImageAttachmentViewModel;
+import com.example.falcon_ab.vk_sa_app.model.view.attachment.ImageAttachmentViewModel;
+import com.example.falcon_ab.vk_sa_app.model.view.attachment.LinkAttachmentViewModel;
+import com.example.falcon_ab.vk_sa_app.model.view.attachment.LinkExternalViewModel;
+import com.example.falcon_ab.vk_sa_app.model.view.attachment.PageAttachmentViewModel;
+import com.example.falcon_ab.vk_sa_app.model.view.attachment.VideoAttachmentViewModel;
 import com.example.falcon_ab.vk_sa_app.rest.model.response.ItemsWithSendersResponse;
+import com.vk.sdk.api.model.VKAttachments;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class VkListHelper {
     public static List<WallItem> getWallList(ItemsWithSendersResponse<WallItem> response) {
@@ -27,5 +40,50 @@ public class VkListHelper {
             }
         }
         return wallItems;
+    }
+
+    public static List<BaseViewModel> getAttachmentVkItems(List<ApiAttachment> attachments) {
+
+        List<BaseViewModel> attachmentVhItems = new ArrayList<>();
+        for (ApiAttachment attachment : attachments) {
+
+            switch (attachment.getType()) {
+                case VKAttachments.TYPE_PHOTO:
+                    attachmentVhItems.add(new ImageAttachmentViewModel(attachment.getPhoto()));
+                    break;
+
+                case VKAttachments.TYPE_AUDIO:
+                    attachmentVhItems.add(new AudioAttachmentViewModel(attachment.getAudio()));
+                    break;
+
+                case VKAttachments.TYPE_VIDEO:
+                    attachmentVhItems.add(new VideoAttachmentViewModel(attachment.getVideo()));
+                    break;
+
+                case VKAttachments.TYPE_DOC:
+                    if (attachment.getDoc().getPreview() != null) {
+                        attachmentVhItems.add(new DocImageAttachmentViewModel(attachment.getDoc()));
+                    } else {
+                        attachmentVhItems.add(new DocAttachmentViewModel(attachment.getDoc()));
+                    }
+                    break;
+
+                case VKAttachments.TYPE_LINK:
+                    if (attachment.getLink().getIsExternal() == 1) {
+                        attachmentVhItems.add(new LinkExternalViewModel(attachment.getLink()));
+                    } else {
+                        attachmentVhItems.add(new LinkAttachmentViewModel(attachment.getLink()));
+                    }
+                    break;
+
+                case "page":
+                    attachmentVhItems.add(new PageAttachmentViewModel(attachment.getPage()));
+                    break;
+
+                default:
+                    throw new NoSuchElementException("Attachment type " + attachment.getType() + " is not supported.");
+            }
+        }
+        return attachmentVhItems;
     }
 }

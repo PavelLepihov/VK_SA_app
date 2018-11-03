@@ -48,7 +48,7 @@ public class NewsFeedItemBodyViewModel extends BaseViewModel {
         return mId;
     }
 
-    public String getmAttachmentString() {
+    public String getAttachmentString() {
         return mAttachmentString;
     }
 

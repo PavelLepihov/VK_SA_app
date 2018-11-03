@@ -1,6 +1,8 @@
 
 package com.example.falcon_ab.vk_sa_app.model.attachment;
 
+import com.example.falcon_ab.vk_sa_app.model.attachment.doc.Doc;
+import com.example.falcon_ab.vk_sa_app.model.attachment.video.Video;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.vk.sdk.api.model.VKAttachments;

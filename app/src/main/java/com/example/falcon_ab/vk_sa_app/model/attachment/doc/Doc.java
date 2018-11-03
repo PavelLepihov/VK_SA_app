@@ -1,5 +1,6 @@
-package com.example.falcon_ab.vk_sa_app.model.attachment;
+package com.example.falcon_ab.vk_sa_app.model.attachment.doc;
 
+import com.example.falcon_ab.vk_sa_app.model.attachment.Attachment;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.vk.sdk.api.model.VKAttachments;
@@ -34,6 +35,14 @@ public class Doc extends RealmObject implements Attachment {
     @SerializedName("access_key")
     @Expose
     private String accessKey;
+    @SerializedName("preview")
+    @Expose
+    public Preview preview;
+
+
+    public Preview getPreview() {
+        return preview;
+    }
 
     public int getId() {
         return id;
