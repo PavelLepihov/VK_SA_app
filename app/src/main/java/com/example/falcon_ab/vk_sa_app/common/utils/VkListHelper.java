@@ -1,5 +1,6 @@
 package com.example.falcon_ab.vk_sa_app.common.utils;
 
+import com.example.falcon_ab.vk_sa_app.model.CommentItem;
 import com.example.falcon_ab.vk_sa_app.model.Owner;
 import com.example.falcon_ab.vk_sa_app.model.WallItem;
 import com.example.falcon_ab.vk_sa_app.model.attachment.ApiAttachment;
@@ -85,5 +86,21 @@ public class VkListHelper {
             }
         }
         return attachmentVhItems;
+    }
+
+    public static List<CommentItem> getCommentsList(ItemsWithSendersResponse<CommentItem> response, boolean isFromTopic) {
+        List<CommentItem> commentItems = response.items;
+
+        for (CommentItem commentItem : commentItems) {
+            Owner sender = response.getSender(commentItem.getFromId());
+            commentItem.setSenderName(sender.getFullName());
+            commentItem.setSenderPhoto(sender.getPhoto());
+
+            commentItem.setIsFromTopic(isFromTopic);
+
+            commentItem.setAttachmentsString(Utils
+                    .convertAttachmentsToFontIcons(commentItem.getAttachments()));
+        }
+        return commentItems;
     }
 }

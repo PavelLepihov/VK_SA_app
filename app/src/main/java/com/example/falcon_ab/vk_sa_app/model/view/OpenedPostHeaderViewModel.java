@@ -6,6 +6,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.falcon_ab.vk_sa_app.R;
 import com.example.falcon_ab.vk_sa_app.common.utils.UiHelper;
+import com.example.falcon_ab.vk_sa_app.model.CommentItem;
 import com.example.falcon_ab.vk_sa_app.model.WallItem;
 import com.example.falcon_ab.vk_sa_app.ui.holder.BaseViewHolder;
 
@@ -30,6 +31,16 @@ public class OpenedPostHeaderViewModel extends BaseViewModel {
         this.mProfilePhoto = wallItem.getSenderPhoto();
 
         this.mText = wallItem.getText();
+    }
+
+    public OpenedPostHeaderViewModel(CommentItem commentItem) {
+
+        this.mId = commentItem.getId();
+
+        this.mProfileName = commentItem.getSenderName();
+        this.mProfilePhoto = commentItem.getSenderPhoto();
+
+        this.mText = commentItem.getDisplayText();
     }
 
 
@@ -71,7 +82,6 @@ public class OpenedPostHeaderViewModel extends BaseViewModel {
 
         @BindView(R.id.tv_text)
         public TextView text;
-
 
         private OpenedPostHeaderHolder(View itemView) {
             super(itemView);

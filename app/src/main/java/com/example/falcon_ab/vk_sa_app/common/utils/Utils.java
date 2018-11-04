@@ -106,7 +106,6 @@ public class Utils {
         }
 
         return str;
-
     }
 
     public static String removeCharAt(String s, int pos) {
@@ -114,7 +113,6 @@ public class Utils {
         sb.deleteCharAt(pos);
         return sb.toString();
     }
-
 
     public static void openUrlInActionView(String url, Context context) {
         if (url != null) {
@@ -127,7 +125,7 @@ public class Utils {
         }
     }
 
-
-
-
+    public static String[] splitString(String s) {
+        return s.replaceAll("[^-?0-9]+", " ").trim().split(" ");
+    }
 }
