@@ -38,7 +38,6 @@ public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder<BaseViewMod
         }
     }
 
-
     public void setItems(List<BaseViewModel> items) {
         clearList();
         addItems(items);
@@ -49,12 +48,9 @@ public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder<BaseViewMod
         for (BaseViewModel newItem : newItems) {
             registerTypeInstance(newItem);
         }
-
         list.addAll(newItems);
-
         notifyDataSetChanged();
     }
-
 
     public void clearList() {
         list.clear();
@@ -86,4 +82,10 @@ public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder<BaseViewMod
         return count;
     }
 
+    public void insertItem(BaseViewModel newItem) {
+        registerTypeInstance(newItem);
+
+        list.add(newItem);
+        notifyItemInserted(getItemCount() - 1);
+    }
 }

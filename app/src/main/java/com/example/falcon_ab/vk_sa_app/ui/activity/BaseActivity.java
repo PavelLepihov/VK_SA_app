@@ -2,6 +2,7 @@ package com.example.falcon_ab.vk_sa_app.ui.activity;
 
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.Toolbar;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
@@ -25,6 +26,8 @@ public abstract class BaseActivity extends MvpAppCompatActivity {
     protected ProgressBar mProgressBar;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+    @BindView(R.id.fab)
+    public FloatingActionButton mFab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,7 @@ public abstract class BaseActivity extends MvpAppCompatActivity {
 
     public void fragmentOnScreen(BaseFragment fragment) {
         setToolbarTitle(fragment.createToolbarTitle(this));
+        setupFabVisibility(fragment.needFab());
     }
 
     public void setToolbarTitle(String title) {
@@ -76,5 +80,15 @@ public abstract class BaseActivity extends MvpAppCompatActivity {
 
     public ProgressBar getProgressBar() {
         return mProgressBar;
+    }
+
+    public void setupFabVisibility(boolean needFab) {
+        if (mFab == null) return;
+
+        if (needFab) {
+            mFab.show();
+        } else {
+            mFab.hide();
+        }
     }
 }
