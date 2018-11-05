@@ -1,6 +1,7 @@
 package com.example.falcon_ab.vk_sa_app.di.module;
 
 import com.example.falcon_ab.vk_sa_app.rest.RestClient;
+import com.example.falcon_ab.vk_sa_app.rest.api.AccountApi;
 import com.example.falcon_ab.vk_sa_app.rest.api.BoardApi;
 import com.example.falcon_ab.vk_sa_app.rest.api.GroupsApi;
 import com.example.falcon_ab.vk_sa_app.rest.api.UsersApi;
@@ -48,5 +49,10 @@ public class RestModule {
     @Singleton
     public VideoApi provideVideoApi() {
         return mRestClient.createService(VideoApi.class);
+    }
+    @Provides
+    @Singleton
+    public AccountApi provideAccountApi() {
+        return mRestClient.createService(AccountApi.class);
     }
 }

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1024834040255",
+    "firebase_url": "https://vksaapp.firebaseio.com",
+    "project_id": "vksaapp",
+    "storage_bucket": "vksaapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024834040255:android:b6dcc79e4c57915d",
+        "android_client_info": {
+          "package_name": "com.example.falcon_ab.vk_sa_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1024834040255-ahoilu7jb2d2cg64pjafm5jdvg9l7f6e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.falcon_ab.vk_sa_app",
+            "certificate_hash": "758cd2e0120892b1bbbf5ae484297e6dc8d5c00f"
+          }
+        },
+        {
+          "client_id": "1024834040255-gqvifg4h9c0f69tv7v1akle9ov7uh7hq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeYw1TtfDm8LRH2pA97-ykK07dDICv0eY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1024834040255-gqvifg4h9c0f69tv7v1akle9ov7uh7hq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

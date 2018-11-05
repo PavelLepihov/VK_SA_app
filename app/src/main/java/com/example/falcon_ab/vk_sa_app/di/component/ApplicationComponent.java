@@ -10,6 +10,8 @@ import com.example.falcon_ab.vk_sa_app.model.view.CommentFooterViewModel;
 import com.example.falcon_ab.vk_sa_app.model.view.TopicViewModel;
 import com.example.falcon_ab.vk_sa_app.mvp.presenter.BoardPresenter;
 import com.example.falcon_ab.vk_sa_app.mvp.presenter.CommentsPresenter;
+import com.example.falcon_ab.vk_sa_app.mvp.presenter.InfoContactsPresenter;
+import com.example.falcon_ab.vk_sa_app.mvp.presenter.InfoLinksPresenter;
 import com.example.falcon_ab.vk_sa_app.mvp.presenter.InfoPresenter;
 import com.example.falcon_ab.vk_sa_app.mvp.presenter.MainPresenter;
 import com.example.falcon_ab.vk_sa_app.mvp.presenter.MembersPresenter;
@@ -20,6 +22,8 @@ import com.example.falcon_ab.vk_sa_app.mvp.presenter.TopicCommentsPresenter;
 import com.example.falcon_ab.vk_sa_app.ui.activity.BaseActivity;
 import com.example.falcon_ab.vk_sa_app.ui.activity.MainActivity;
 import com.example.falcon_ab.vk_sa_app.ui.fragment.CommentsFragment;
+import com.example.falcon_ab.vk_sa_app.ui.fragment.InfoContactsFragment;
+import com.example.falcon_ab.vk_sa_app.ui.fragment.InfoLinksFragment;
 import com.example.falcon_ab.vk_sa_app.ui.fragment.NewsFeedFragment;
 import com.example.falcon_ab.vk_sa_app.ui.fragment.OpenedCommentFragment;
 import com.example.falcon_ab.vk_sa_app.ui.fragment.OpenedPostFragment;
@@ -46,6 +50,8 @@ public interface ApplicationComponent {
     void inject(CommentsFragment fragment);
     void inject(OpenedCommentFragment fragment);
     void inject(TopicCommentsFragment fragment);
+    void inject(InfoLinksFragment fragment);
+    void inject(InfoContactsFragment fragment);
     //holders
     void inject(NewsItemBodyHolder holder);
     void inject(NewsItemFooterHolder holder);
@@ -64,6 +70,8 @@ public interface ApplicationComponent {
     void inject(CommentsPresenter presenter);
     void inject(OpenedCommentPresenter presenter);
     void inject(TopicCommentsPresenter presenter);
+    void inject(InfoContactsPresenter presenter);
+    void inject(InfoLinksPresenter presenter);
     //managers
     void inject(NetworkManager manager);
 }

@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MyApplication"
@@ -28,6 +29,22 @@
         <activity
             android:name="com.example.falcon_ab.vk_sa_app.ui.activity.CreatePostActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"/>
+        <activity
+            android:name=".ui.activity.SettingActivity"/>
+        <activity
+            android:name=".ui.activity.OpenedPostFromPushActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+        </activity>
+        <service android:name="com.example.falcon_ab.vk_sa_app.fcm.MyFirebaseInstanceIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name="com.example.falcon_ab.vk_sa_app.fcm.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

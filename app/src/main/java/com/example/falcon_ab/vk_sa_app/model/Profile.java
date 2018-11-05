@@ -45,6 +45,8 @@ public class Profile extends RealmObject implements Owner {
     @Expose
     private int hidden;
 
+    private boolean isContact;
+
 
     public String getFirstName() {
         return firstName;
@@ -123,8 +125,15 @@ public class Profile extends RealmObject implements Owner {
         return photo100;
     }
 
-
     public int getId() {
         return id;
+    }
+
+    public boolean isContact() {
+        return isContact;
+    }
+
+    public void setContact(boolean contact) {
+        isContact = contact;
     }
 }

@@ -10,8 +10,10 @@ import com.example.falcon_ab.vk_sa_app.model.Profile;
 import com.example.falcon_ab.vk_sa_app.mvp.view.MainView;
 import com.example.falcon_ab.vk_sa_app.rest.api.UsersApi;
 import com.example.falcon_ab.vk_sa_app.rest.model.request.UsersGetRequestModel;
+import com.example.falcon_ab.vk_sa_app.ui.activity.SettingActivity;
 import com.example.falcon_ab.vk_sa_app.ui.fragment.BaseFragment;
 import com.example.falcon_ab.vk_sa_app.ui.fragment.BoardFragment;
+import com.example.falcon_ab.vk_sa_app.ui.fragment.GroupRulesFragment;
 import com.example.falcon_ab.vk_sa_app.ui.fragment.InfoFragment;
 import com.example.falcon_ab.vk_sa_app.ui.fragment.MembersFragment;
 import com.example.falcon_ab.vk_sa_app.ui.fragment.MyPostsFragment;
@@ -106,6 +108,9 @@ public class MainPresenter extends MvpPresenter<MainView> {
             case 2:
                 fragment = new MyPostsFragment();
                 break;
+            case 3:
+                getViewState().startActivityFromDrawer(SettingActivity.class);
+                return;
             case 4:
                 fragment = new MembersFragment();
                 break;
@@ -114,6 +119,9 @@ public class MainPresenter extends MvpPresenter<MainView> {
                 break;
             case 6:
                 fragment = new InfoFragment();
+                break;
+            case 7:
+                fragment = new GroupRulesFragment();
                 break;
         }
 

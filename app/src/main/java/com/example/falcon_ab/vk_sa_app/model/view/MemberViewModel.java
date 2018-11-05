@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.falcon_ab.vk_sa_app.R;
 import com.example.falcon_ab.vk_sa_app.model.Member;
+import com.example.falcon_ab.vk_sa_app.model.Profile;
 import com.example.falcon_ab.vk_sa_app.ui.holder.BaseViewHolder;
 
 import butterknife.BindView;
@@ -33,6 +34,12 @@ public class MemberViewModel extends BaseViewModel {
         this.photo = member.getPhoto();
         this.mFullName = member.getFullName();
     }
+
+    public MemberViewModel (Profile profile) {
+        this.photo = profile.getPhoto();
+        this.mFullName = profile.getFullName();
+    }
+
 
     @Override
     public LayoutTypes getType() {

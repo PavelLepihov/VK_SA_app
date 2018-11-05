@@ -3,7 +3,7 @@ apply plugin: 'realm-android'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '27.0.3'
+    buildToolsVersion '26.0.1'
     defaultConfig {
         applicationId "com.example.falcon_ab.vk_sa_app"
         minSdkVersion 19
@@ -11,6 +11,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -43,12 +44,12 @@ dependencies {
     annotationProcessor 'com.squareup:javapoet:1.9.0'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
-    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
     implementation 'com.android.support:cardview-v7:26.0.0'
     implementation 'com.android.support:recyclerview-v7:26.0.0'
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.2'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.3'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
@@ -57,4 +58,7 @@ dependencies {
     }
     implementation 'com.mikepenz:google-material-typeface:2.2.0.2.original@aar'
     implementation 'com.droidninja:filepicker:2.0.8'
+    implementation 'com.google.firebase:firebase-messaging:10.2.1'
 }
+
+apply plugin: 'com.google.gms.google-services'

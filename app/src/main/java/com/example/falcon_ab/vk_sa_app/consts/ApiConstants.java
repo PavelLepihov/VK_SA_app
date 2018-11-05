@@ -3,6 +3,9 @@ package com.example.falcon_ab.vk_sa_app.consts;
 
 import com.vk.sdk.VKScope;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class ApiConstants {
     public static final String[] DEFAULT_LOGIN_SCOPE = {VKScope.AUDIO, VKScope.DIRECT, VKScope.VIDEO,
             VKScope.WALL, VKScope.MESSAGES, VKScope.PHOTOS, VKScope.PAGES, VKScope.GROUPS, VKScope.EMAIL,
@@ -23,4 +26,18 @@ public class ApiConstants {
     public static final String NEED_LIKES = "need_likes";
     public static final String GROUP_ID = "group_id";
     public static final String TOPIC_ID = "topic_id";
+    public static final String TOKEN = "token";
+    public static final String SYSTEM_VERSION = "system_version";
+    public static final String DEVICE_MODEL = "device_model";
+    public static final String DEVICE_ID = "device_id";
+    public static final String SETTINGS = "settings";
+
+    public static JSONObject getDefaultPushSettings() {
+        try {
+            return new JSONObject("{\"comment\":\"on\", \"reply\":\"on\", \"new_post\":\"on\"}");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
